@@ -99,7 +99,7 @@ def main():
         user_input = input("你: ").strip()
 
         if user_input.lower() in {"exit", "quit"}:
-            print("天选之蚕: 燕子，下次见面也要幸福！.")
+            print("天选之蚕: 燕子！下次见面也要幸福！")
             break
 
         messages.append(HumanMessage(content=user_input))

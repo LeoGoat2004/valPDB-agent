@@ -13,6 +13,11 @@ structure assessment (for example, Ramachandran plot generation).
 ## 1. Build the Docker image
 
 ```bash
+docker pull swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/continuumio/anaconda3:latest
+docker tag  swr.cn-north-4.myhuaweicloud.com/ddn-k8s/docker.io/continuumio/anaconda3:latest  docker.io/continuumio/anaconda3:latest
+```
+
+```bash
 docker build -t protein-agent:latest .
 ```
 
@@ -34,7 +39,12 @@ host-accessible address. Do not use `localhost` inside the container.
 ## 3. Run the agent (interactive mode)
 
 ```bash
-docker run -it --name protein-agent --env-file .env protein-agent:latest
+docker run -it \
+  --network=host \
+  --env-file .env \
+  -v /your/data/path:/data \
+  --name protein-agent \
+  protein-agent:latest
 ```
 
 The agent will start in interactive mode.
@@ -42,12 +52,6 @@ If required information (such as file paths or output locations) is missing,
 the agent will ask for clarification before executing any tool.
 
 ## 4. Retrieve outputs
-
-All generated files are written inside the container under:
-
-```
-/app/output
-```
 
 To copy results from the container to the host:
 
