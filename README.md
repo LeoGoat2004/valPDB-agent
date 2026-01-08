@@ -1,4 +1,4 @@
-# Protein-Agent
+# valPDB-Agent
 
 A LangChain-based agent for protein structure evaluation.
 The agent uses large language models to orchestrate protein analysis tools,
