@@ -1,0 +1,30 @@
+# local configs
+.env
+.env.* 
+!.env.example
+
+# Python bytecode / caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtualenv / Conda
+.venv/
+venv/
+env/
+.conda/
+conda-bld/
+*.conda
+*.egg-info/
+.eggs/
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Logs / outputs
+*.log
+output/
